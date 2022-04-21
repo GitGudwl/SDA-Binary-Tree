@@ -160,13 +160,17 @@ NAdress delete (NAdress node, int id)
     }
 }
 
-boolean notdone()
+void SearchUtility(NAdress node, int id)
 {
-    char x;
-    scanf("%s", &x);
-    if (x == 'y' || 'Y')
-        return true;
-    return false;
+    if (searchelement(node, id) == NULL)
+    {
+        printf("\nData Tersebut tidak tidak tersedia\n");
+    }
+    else
+    {
+        printf("Alamat\t :%p\n", searchelement(node, id));
+        printf("Nama\t :%s\n", searchelement(node, id)->data.name);
+    }
 }
 
 void menu()
@@ -176,4 +180,3 @@ void menu()
     printf("3.Print tree\n");
     printf("4.Cari data di dalam tree\n");
 }
-

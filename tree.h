@@ -48,6 +48,7 @@ NAdress insert(NAdress node, karyawan data);
 
 NAdress delete (NAdress node, int id);
 
-boolean notdone();
+void SearchUtility(NAdress node, int id);
+
 
 #endif
