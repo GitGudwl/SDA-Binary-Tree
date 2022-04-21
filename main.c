@@ -8,7 +8,6 @@ int main()
     createTree(&tree);
 
     tree.root = insert(tree.root, createData("Dhika Putra", 45));
-    insert(tree.root, createData("Dhika Putra", 45));
     insert(tree.root, createData("Chandra Diva", 87));
     insert(tree.root, createData("Abdullah Anugrah", 65));
     insert(tree.root, createData("Bayu Virani", 39));
@@ -23,12 +22,19 @@ int main()
     insert(tree.root, createData("Izhar Subekti", 11));
     insert(tree.root, createData("Mustofah Sabri", 41));
 
-    
+    print2D(tree.root);
+
     printf("\nPreorder traversal of binary tree is \n");
     printPreorder(tree.root);
-    printPreorder(tree.root);
+
+    printf("\nInorder traversal of binary tree is \n");
+    printInorder(tree.root);
+
     SearchUtility(tree.root, 41);
 
+    deleteutility(tree.root, 41);
+
+    SearchUtility(tree.root, 41);
     getchar();
     system("cls");
     return 0;

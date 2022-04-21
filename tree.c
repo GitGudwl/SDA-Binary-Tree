@@ -44,8 +44,9 @@ int GetId(treenode *P)
 void printPostorder(NAdress node)
 {
     if (node == NULL)
+    {
         return;
-
+    }
     // first recur on left subtree
     printPostorder(node->left);
 
@@ -60,8 +61,9 @@ void printPostorder(NAdress node)
 void printInorder(NAdress node)
 {
     if (node == NULL)
+    {
         return;
-
+    }
     /* first recur on left child */
     printInorder(node->left);
 
@@ -75,7 +77,9 @@ void printInorder(NAdress node)
 void printPreorder(NAdress node)
 {
     if (node == NULL)
+    {
         return;
+    }
 
     /* first print data of node */
     printf("iD\t : %d\n", GetId(node));
@@ -171,6 +175,49 @@ void SearchUtility(NAdress node, int id)
         printf("Alamat\t :%p\n", searchelement(node, id));
         printf("Nama\t :%s\n", searchelement(node, id)->data.name);
     }
+}
+
+void deleteutility(NAdress node, int id)
+{
+    if (searchelement(node, id) == NULL)
+    {
+        printf("Data tidak tersedia dalam tree\n");
+    }
+    else
+    {
+        delete (node, id);
+        printf("Delete Sukses\n");
+    }
+}
+
+void print2DUtil(NAdress root, int space)
+{
+    // Base case
+    if (root == NULL)
+        return;
+
+    // Increase distance between levels
+    space += 10;
+
+    // Process right child first
+    print2DUtil(root->right, space);
+
+    // Print current node after space
+    // count
+    printf("\n");
+    for (int i = 10; i < space; i++)
+        printf(" ");
+    printf("%d\n", root->data.id);
+
+    // Process left child
+    print2DUtil(root->left, space);
+}
+
+// Wrapper over print2DUtil()
+void print2D(NAdress root)
+{
+    // Pass initial space count as 0
+    print2DUtil(root, 0);
 }
 
 void menu()
